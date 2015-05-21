@@ -1,0 +1,35 @@
+varnish:
+  restart: 'no'
+  tty: true
+  image: terra/varnish
+  links:
+  - web
+  stdin_open: true
+web:
+  restart: 'no'
+  environment:
+    MYSQL_USER: drupal
+    MYSQL_DATABASE: drupal
+    MYSQL_PASSWORD: drupal
+  tty: true
+  image: drupal
+  links:
+  - mysql
+  stdin_open: true
+balancer:
+  ports:
+  - 80:80
+  tty: true
+  links:
+  - varnish
+  stdin_open: true
+mysql:
+  restart: on-failure:5
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+    MYSQL_USER: drupal
+    MYSQL_DATABASE: drupal
+    MYSQL_PASSWORD: drupal
+  tty: true
+  image: mariadb
+  stdin_open: true

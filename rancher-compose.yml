@@ -1,0 +1,19 @@
+varnish:
+  scale: 1
+web:
+  scale: 1
+balancer:
+  scale: 1
+  loadbalancerconfig:
+    lbcookiestickinesspolicy: null
+    appcookiestickinesspolicy: null
+    description: null
+    name: balancer config
+    healthcheck:
+      responsetimeout: 2000
+      interval: 2000
+      unhealthythreshold: 3
+      requestline: ''
+      healthythreshold: 2
+mysql:
+  scale: 1
