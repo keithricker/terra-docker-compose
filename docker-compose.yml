@@ -5,6 +5,8 @@ varnish:
   links:
   - web
   stdin_open: true
+  ports:
+    - 8000:80
 web:
   restart: 'no'
   environment:
@@ -16,14 +18,15 @@ web:
   links:
   - mysql
   stdin_open: true
-balance:
-  build: ./balance
-  ports:
-  - 8000:80
-  tty: true
-  links:
-  - varnish
-  stdin_open: true
+
+# balance:
+#  build: ./balance
+#  ports:
+#  - 8000:80
+#  tty: true
+#  links:
+#  - varnish
+#  stdin_open: true
 mysql:
   restart: on-failure:5
   environment:
