@@ -22,6 +22,7 @@ Then add the key in deploy.key.pub to the github repo you wish to clone:
 6. Click Save.
 7. `docker-compose up` will build the image by cloning the code into the container.
  
+Learned how to set this up from http://stackoverflow.com/questions/23391839/clone-private-git-repo-with-dockerfile 
 
 ## Current Issues:
 
