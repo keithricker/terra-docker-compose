@@ -13,8 +13,10 @@ web:
     MYSQL_USER: drupal
     MYSQL_DATABASE: drupal
     MYSQL_PASSWORD: drupal
+    DRUPAL_REPO: git@github.com:NuCivic/data-sierraleone.git
+    DRUPAL_VERSION: master
   tty: true
-  image: drupal
+  build: ./drupal
   links:
   - mysql
   stdin_open: true
