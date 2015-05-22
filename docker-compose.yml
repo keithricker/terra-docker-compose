@@ -1,7 +1,7 @@
 varnish:
   restart: 'no'
   tty: true
-  image: terra/varnish
+  build: ./varnish
   links:
   - web
   stdin_open: true
@@ -16,9 +16,10 @@ web:
   links:
   - mysql
   stdin_open: true
-balancer:
+balance:
+  build: ./balance
   ports:
-  - 80:80
+  - 8000:80
   tty: true
   links:
   - varnish
