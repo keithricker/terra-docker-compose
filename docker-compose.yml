@@ -1,3 +1,9 @@
+authorizedkeys:
+  image: tutum/authorizedkeys:latest
+  environment:
+    - 'AUTHORIZED_KEYS=[PASTE YOUR LOCAL MACHINES PUBLIC SSH KEY HERE]'
+  volumes:
+    - '/root:/user'
 varnish:
   restart: 'no'
   tty: true
